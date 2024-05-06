@@ -1,0 +1,87 @@
+{
+  "name": "trem",
+  "version": "0.0.1",
+  "description": "Taiwan Real-time Earthquake Monitoring ( 臺灣即時地震監測 )",
+  "main": "main.js",
+  "homepage": "https://exptech.com.tw/",
+  "author": "ExpTechTW <ExpTech.tw@gmail.com>",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "dist": "electron-builder -wl",
+    "lint": "eslint --ext .js scripts/"
+  },
+  "build": {
+    "productName": "TREM",
+    "appId": "tw.exptech.trem",
+    "asar": true,
+    "files": [
+      "assets/**/*",
+      "audio/**/*",
+      "scripts/**/*",
+      "styles/**/*",
+      "views/*",
+      "main.js",
+      "preload.js",
+      "package-lock.json",
+      "package.json"
+    ],
+    "dmg": {
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "win": {
+      "publish": null,
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "assets/TREM.ico"
+    },
+    "linux": {
+      "publish": null,
+      "target": [
+        "deb"
+      ],
+      "category": "Science",
+      "icon": "assets/TREM.ico",
+      "maintainer": "ExpTechTW"
+    },
+    "directories": {
+      "buildResources": "resources",
+      "output": "../dist"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ExpTechTW/TREM.git"
+  },
+  "keywords": [],
+  "license": "AGPL-3.0",
+  "devDependencies": {
+    "electron": "^27.0.3",
+    "electron-builder": "^24.6.4",
+    "eslint": "^8.52.0",
+    "stylelint": "^15.11.0",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-order": "^6.0.3"
+  },
+  "dependencies": {
+    "@material/material-color-utilities": "^0.2.7",
+    "chroma-js": "^2.4.2",
+    "electron-fcm-push-receiver": "^2.1.7",
+    "maplibre-gl": "^3.5.2",
+    "uuid": "^9.0.1",
+    "ws": "^8.14.2"
+  }
+}
